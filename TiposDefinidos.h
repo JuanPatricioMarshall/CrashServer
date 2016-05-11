@@ -203,6 +203,7 @@ struct Avion
 {
 	int velDespl;
 	int velDisp;
+	int cdDisp;
 	std::string avionSprId;
 	std::string vueltaSprId;
 	std::string disparoSprId;

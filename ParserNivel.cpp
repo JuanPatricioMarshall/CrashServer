@@ -264,20 +264,26 @@ bool ParserNivel::extraerAvion(const pugi::xml_document* doc, bool isLoadingDefa
 	pugi::xml_node avionNode = doc->child("avion");
 	std::string velDesplStr = avionNode.child("velocidadDesplazamiento").first_child().value();
 	std::string velDispStr = avionNode.child("velocidadDisparos").first_child().value();
+	std::string cdDispStr = avionNode.child("cooldownDisparos").first_child().value();
 	std::string avionSprId = avionNode.child("avionSpriteId").first_child().value();
 	std::string vueltaSprId = avionNode.child("vueltaSpriteId").first_child().value();
 	std::string disparpSprId = avionNode.child("disparosSpriteId").first_child().value();
 
 	if(! validarNumero(velDesplStr))
 	{
-		Logger::Instance()->LOG("Se cargo el ancho del fondo por default", WARN);
+		Logger::Instance()->LOG("Se cargo la velocidad del avion por default", WARN);
 		velDesplStr = "10";
 	}
 	if(! validarNumero(velDispStr))
 	{
-		Logger::Instance()->LOG("Se cargo el alto del fondo por default", WARN);
+		Logger::Instance()->LOG("Se cargo la velocidad del disparo por default", WARN);
 		velDispStr = "12";
 	}
+	if(! validarNumero(cdDispStr))
+		{
+			Logger::Instance()->LOG("Se cargo el cd del disparo por default", WARN);
+			cdDispStr = "300";
+		}
 	bool found = false;
 	std::vector<Sprite> lista =  getListaSprites();
 	for(int i=0; i < lista.size(); i++)
@@ -325,6 +331,7 @@ bool ParserNivel::extraerAvion(const pugi::xml_document* doc, bool isLoadingDefa
 
 	m_avion.velDespl = std::stoi(velDesplStr);
 	m_avion.velDisp = std::stoi(velDispStr);
+	m_avion.cdDisp = std::stoi(cdDispStr);
 	m_avion.avionSprId = avionSprId;
 	m_avion.vueltaSprId = vueltaSprId;
 	m_avion.disparoSprId = disparpSprId;

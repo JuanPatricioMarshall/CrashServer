@@ -68,6 +68,7 @@
 <avion>
 	<velocidadDesplazamiento>10</velocidadDesplazamiento>
 	<velocidadDisparos>6</velocidadDisparos>
+	<cooldownDisparos>300</cooldownDisparos>
 	<avionSpriteId>avion</avionSpriteId>
 	<vueltaSpriteId>vuelta</vueltaSpriteId>
 	<disparosSpriteId>disparo</disparosSpriteId>
