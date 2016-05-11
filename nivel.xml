@@ -40,6 +40,7 @@
 	</sprite>
 </sprites>
 <escenario>
+	<velocidadScroll>5</velocidadScroll>
 	<ancho>100</ancho>
 	<alto>1000</alto>
 	<fondo>

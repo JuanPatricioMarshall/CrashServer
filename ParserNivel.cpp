@@ -163,11 +163,18 @@ bool ParserNivel::extraerEscenario(const pugi::xml_document* doc, bool isLoading
 			Logger::Instance()->LOG("Se cargo el alto del escenario por default", WARN);
 			altoString = "1100";
 		}
+	std::string velScrollString = escenarioNode.child("velocidadScroll").first_child().value();
+	if (!validarNumero(velScrollString))
+	{
+		Logger::Instance()->LOG("Se cargo velocidad de scrolling del escenario por default", WARN);
+		velScrollString = "5";
+	}
 
 			extraerFondo(doc,1);
 			extraerElementos(doc,1);
 			m_escenario.ancho = std::stoi(anchoString);
 			m_escenario.alto = std::stoi(altoString);
+			m_escenario.velScroll = std::stoi(velScrollString);
 			m_escenario.fondo = m_fondo;
 			m_escenario.listaDeElementos = m_listaDeElementos;
 		return true;
