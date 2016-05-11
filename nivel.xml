@@ -40,6 +40,7 @@
 	</sprite>
 </sprites>
 <escenario>
+	<cantidadMaximaJugadores>2</cantidadMaximaJugadores>
 	<velocidadScroll>5</velocidadScroll>
 	<ancho>100</ancho>
 	<alto>1000</alto>
@@ -67,8 +68,8 @@
 </escenario>
 <avion>
 	<velocidadDesplazamiento>10</velocidadDesplazamiento>
-	<velocidadDisparos>6</velocidadDisparos>
-	<cooldownDisparos>300</cooldownDisparos>
+	<velocidadDisparos>23</velocidadDisparos>
+	<cooldownDisparos>34</cooldownDisparos>
 	<avionSpriteId>avion</avionSpriteId>
 	<vueltaSpriteId>vuelta</vueltaSpriteId>
 	<disparosSpriteId>disparo</disparosSpriteId>

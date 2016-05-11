@@ -150,6 +150,13 @@ bool ParserNivel::extraerEscenario(const pugi::xml_document* doc, bool isLoading
 
 	bool exito = true;
 	pugi::xml_node escenarioNode = doc->child("escenario");
+	std::string cantJugadoresStr = escenarioNode.child("cantidadMaximaJugadores").first_child().value();
+	if (!validarNumero(cantJugadoresStr))
+			{
+				Logger::Instance()->LOG("Se cargo la cantidad de jugadores del escenario por default", WARN);
+				cantJugadoresStr = "2";
+			}
+
 	std::string anchoString = escenarioNode.child("ancho").first_child().value();
 
 	if (!validarNumero(anchoString))
@@ -172,6 +179,7 @@ bool ParserNivel::extraerEscenario(const pugi::xml_document* doc, bool isLoading
 
 			extraerFondo(doc,1);
 			extraerElementos(doc,1);
+			m_escenario.cantidadJugadores = std::stoi(cantJugadoresStr);
 			m_escenario.ancho = std::stoi(anchoString);
 			m_escenario.alto = std::stoi(altoString);
 			m_escenario.velScroll = std::stoi(velScrollString);

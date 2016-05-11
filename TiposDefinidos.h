@@ -192,6 +192,7 @@ struct Elemento
 struct Escenario
 {
 	int velScroll;
+	int cantidadJugadores;
 	int ancho;
 	int alto;
 	struct Fondo fondo;
